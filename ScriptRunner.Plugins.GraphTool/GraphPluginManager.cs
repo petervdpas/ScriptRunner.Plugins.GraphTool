@@ -7,8 +7,6 @@ using ScriptRunner.Plugins.GraphTool.Interfaces.Plugins;
 using ScriptRunner.Plugins.GraphTool.Models;
 using ScriptRunner.Plugins.Logging;
 using ScriptRunner.Plugins.Models;
-using Serilog;
-using Serilog.Extensions.Logging;
 
 namespace ScriptRunner.Plugins.GraphTool;
 
