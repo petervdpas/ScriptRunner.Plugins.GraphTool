@@ -8,6 +8,7 @@ using ScriptRunner.Plugins.GraphTool.Interfaces;
 using ScriptRunner.Plugins.GraphTool.Interfaces.Plugins;
 using ScriptRunner.Plugins.GraphTool.Plugins;
 using ScriptRunner.Plugins.Logging;
+using ScriptRunner.Plugins.Utilities;
 
 namespace ScriptRunner.Plugins.GraphTool;
 
@@ -19,11 +20,11 @@ namespace ScriptRunner.Plugins.GraphTool;
 /// </remarks>
 [PluginMetadata(
     name: "Graph Tool",
-    description: "A plugin that provides ...",
+    description: "A plugin that cam perform graph operations",
     author: "Peter van de Pas",
     version: "1.0.0",
-    pluginSystemVersion: "1.0.26",
-    frameworkVersion: ".NET 8.0",
+    pluginSystemVersion: PluginSystemConstants.CurrentPluginSystemVersion,
+    frameworkVersion: PluginSystemConstants.CurrentFrameworkVersion,
     services: [
     "IClassDiagramPlugin", 
     "IErdPlugin", 

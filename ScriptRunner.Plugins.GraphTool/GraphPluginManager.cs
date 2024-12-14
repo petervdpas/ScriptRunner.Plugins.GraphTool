@@ -7,6 +7,8 @@ using ScriptRunner.Plugins.GraphTool.Interfaces.Plugins;
 using ScriptRunner.Plugins.GraphTool.Models;
 using ScriptRunner.Plugins.Logging;
 using ScriptRunner.Plugins.Models;
+using Serilog;
+using Serilog.Extensions.Logging;
 
 namespace ScriptRunner.Plugins.GraphTool;
 
@@ -19,7 +21,7 @@ public class GraphPluginManager : IGraphPluginManager
     private readonly IErdPlugin? _erdPlugin;
     private readonly ILineagePlugin? _lineagePlugin;
 
-    private readonly IPluginLogger _logger;
+    private readonly IPluginLogger? _logger;
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="GraphPluginManager" /> class with optional plugins.
@@ -31,7 +33,7 @@ public class GraphPluginManager : IGraphPluginManager
     /// <param name="classDiagramPlugin">The plugin for generating class diagram-based graph data (optional).</param>
     /// <param name="lineagePlugin">The plugin for managing data lineage in graph data (optional).</param>
     public GraphPluginManager(
-        IPluginLogger logger,
+        IPluginLogger? logger,
         IErdPlugin? erdPlugin = null,
         IClassDiagramPlugin? classDiagramPlugin = null,
         ILineagePlugin? lineagePlugin = null)
@@ -153,7 +155,7 @@ public class GraphPluginManager : IGraphPluginManager
             var nodeName = $"{entity.Name}.{attribute.Key}";
             var customMetadata = nodeMetadata?.GetValueOrDefault(nodeName);
 
-            _logger.Debug($"Processing node: {nodeName} with metadata: {customMetadata}");
+            _logger?.Debug($"Processing node: {nodeName} with metadata: {customMetadata}");
             graphData.FindOrAddNodeWithMeta(nodeName, customMetadata);
         }
 
@@ -163,7 +165,7 @@ public class GraphPluginManager : IGraphPluginManager
             var toField = $"{relationship.ToEntity}.{relationship.Key}";
             var customEdgeMetadata = edgeMetadata?.GetValueOrDefault($"{fromField}->{toField}");
 
-            _logger.Debug($"Creating edge: {fromField} -> {toField} with metadata: {customEdgeMetadata}");
+            _logger?.Debug($"Creating edge: {fromField} -> {toField} with metadata: {customEdgeMetadata}");
             var edge = graphData.FindOrAddEdge(fromField, toField, "lineage");
             edge.Metadata = MetadataUtils.MergeMetadata(edge.Metadata, customEdgeMetadata);
         }
