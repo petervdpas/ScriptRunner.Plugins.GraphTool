@@ -11,7 +11,7 @@
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="ScriptRunner.Plugins" Version="1.2.8" />
+        <PackageReference Include="ScriptRunner.Plugins" Version="1.2.10" />
     </ItemGroup>
 
     <Target Name="SeparatePluginAndDependencies" AfterTargets="Build">
