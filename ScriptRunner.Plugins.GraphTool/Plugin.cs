@@ -19,40 +19,41 @@ namespace ScriptRunner.Plugins.GraphTool;
 ///     This plugin demonstrates how to ...
 /// </remarks>
 [PluginMetadata(
-    name: "Graph Tool",
-    description: "A plugin that cam perform graph operations",
-    author: "Peter van de Pas",
-    version: "1.0.0",
-    pluginSystemVersion: PluginSystemConstants.CurrentPluginSystemVersion,
-    frameworkVersion: PluginSystemConstants.CurrentFrameworkVersion,
-    services: [
-    "IClassDiagramPlugin", 
-    "IErdPlugin", 
-    "ILineagePlugin", 
-    "IGraphData", 
-    "IGraphPluginManager",
-    "IGraphDataPersistence",
-    "IGraphVisualization"])]
+    "Graph Tool",
+    "A plugin that cam perform graph operations",
+    "Peter van de Pas",
+    "1.0.0",
+    PluginSystemConstants.CurrentPluginSystemVersion,
+    PluginSystemConstants.CurrentFrameworkVersion,
+    [
+        "IClassDiagramPlugin",
+        "IErdPlugin",
+        "ILineagePlugin",
+        "IGraphData",
+        "IGraphPluginManager",
+        "IGraphDataPersistence",
+        "IGraphVisualization"
+    ])]
 public class Plugin : BaseAsyncServicePlugin
 {
     /// <summary>
-    /// Gets the name of the plugin.
+    ///     Gets the name of the plugin.
     /// </summary>
     public override string Name => "GraphTool";
 
     /// <summary>
-    /// Asynchronously registers the plugin's services into the application's dependency injection container.
+    ///     Asynchronously registers the plugin's services into the application's dependency injection container.
     /// </summary>
     /// <param name="services">The service collection to register services into.</param>
     public override async Task RegisterServicesAsync(IServiceCollection services)
     {
         // Simulate async service registration (e.g., initializing an external resource)
         await Task.Delay(50);
-        
+
         services.AddSingleton<IClassDiagramPlugin, ClassDiagramPlugin>();
         services.AddSingleton<IErdPlugin, ErdPlugin>();
         services.AddSingleton<ILineagePlugin, LineagePlugin>();
-        
+
         services.AddSingleton<IGraphData, GraphData>();
         services.AddSingleton<IGraphPluginManager>(provider =>
             new GraphPluginManager(
@@ -64,21 +65,21 @@ public class Plugin : BaseAsyncServicePlugin
             (_ => new GraphDataPersistence<Dictionary<string, object>, Dictionary<string, object>>());
         services.AddSingleton<IGraphVisualization, GraphVisualization>();
     }
-    
+
     /// <summary>
-    /// Initializes the plugin using the provided configuration.
+    ///     Initializes the plugin using the provided configuration.
     /// </summary>
     /// <param name="configuration">A dictionary containing configuration key-value pairs for the plugin.</param>
     public override async Task InitializeAsync(IDictionary<string, object> configuration)
     {
         await Task.Delay(100);
-        Console.WriteLine(configuration.TryGetValue("SomeKey", out var someValue)
-            ? $"SomeKey value: {someValue}"
-            : "SomeKey not found in configuration.");
+        Console.WriteLine(configuration.TryGetValue("GraphToolKey", out var graphToolValue)
+            ? $"GraphToolKey value: {graphToolValue}"
+            : "GraphToolKey not found in configuration.");
     }
 
     /// <summary>
-    /// Executes the plugin's main functionality.
+    ///     Executes the plugin's main functionality.
     /// </summary>
     public override async Task ExecuteAsync()
     {

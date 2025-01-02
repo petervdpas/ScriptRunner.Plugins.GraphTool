@@ -10,24 +10,24 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="ScriptRunner.Plugins" Version="1.6.56" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="ScriptRunner.Plugins" Version="1.6.56"/>
     </ItemGroup>
 
     <Target Name="SeparatePluginAndDependencies" AfterTargets="Build">
 
         <!-- Ensure Dependencies subdirectory exists -->
-        <MakeDir Directories="..\Plugins" />
+        <MakeDir Directories="..\Plugins"/>
 
         <!-- Recursively Copy EVERYTHING from $(TargetDir), including subdirectories -->
         <ItemGroup>
-            <AllFiles Include="$(TargetDir)**\*" />
+            <AllFiles Include="$(TargetDir)**\*"/>
         </ItemGroup>
 
         <!-- Recursively Copy Files While Preserving Directory Structure -->
         <Copy SourceFiles="@(AllFiles)"
               DestinationFiles="..\Plugins\%(RecursiveDir)%(Filename)%(Extension)"
-              SkipUnchangedFiles="false" />
+              SkipUnchangedFiles="false"/>
 
         <ItemGroup>
             <DemoScripts Include="$(ProjectDir)DemoScripts\**\*"/>

@@ -25,7 +25,7 @@ public class GraphPluginManager : IGraphPluginManager
     ///     Initializes a new instance of the <see cref="GraphPluginManager" /> class with optional plugins.
     /// </summary>
     /// <param name="logger">
-    /// The <see cref="IPluginLogger"/> instance used for logging messages within the Azure Key Vault operations.
+    ///     The <see cref="IPluginLogger" /> instance used for logging messages within the Azure Key Vault operations.
     /// </param>
     /// <param name="erdPlugin">The plugin for generating ERD-based graph data (optional).</param>
     /// <param name="classDiagramPlugin">The plugin for generating class diagram-based graph data (optional).</param>

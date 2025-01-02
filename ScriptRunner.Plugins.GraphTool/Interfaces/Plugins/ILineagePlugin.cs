@@ -4,12 +4,12 @@ using ScriptRunner.Plugins.GraphTool.Models;
 namespace ScriptRunner.Plugins.GraphTool.Interfaces.Plugins;
 
 /// <summary>
-/// Provides methods for managing lineage relationships in a graph structure.
+///     Provides methods for managing lineage relationships in a graph structure.
 /// </summary>
 public interface ILineagePlugin
 {
     /// <summary>
-    /// Adds a node to the graph, optionally attaching metadata.
+    ///     Adds a node to the graph, optionally attaching metadata.
     /// </summary>
     /// <param name="nodeName">The name of the node to add.</param>
     /// <param name="graphData">The graph data structure to modify.</param>
@@ -17,7 +17,7 @@ public interface ILineagePlugin
     void AddNode(string nodeName, GraphData graphData, Dictionary<string, object>? metadata = null);
 
     /// <summary>
-    /// Adds an edge between two nodes, optionally attaching metadata.
+    ///     Adds an edge between two nodes, optionally attaching metadata.
     /// </summary>
     /// <param name="fromNode">The source node of the edge.</param>
     /// <param name="toNode">The target node of the edge.</param>
@@ -26,7 +26,7 @@ public interface ILineagePlugin
     void AddEdge(string fromNode, string toNode, GraphData graphData, Dictionary<string, object>? metadata = null);
 
     /// <summary>
-    /// Retrieves all outgoing edges starting from a specific node.
+    ///     Retrieves all outgoing edges starting from a specific node.
     /// </summary>
     /// <param name="nodeName">The name of the starting node.</param>
     /// <param name="graphData">The graph data structure containing the edges.</param>
@@ -34,7 +34,7 @@ public interface ILineagePlugin
     IEnumerable<Edge> GetOutgoingEdges(string nodeName, GraphData graphData);
 
     /// <summary>
-    /// Retrieves all incoming edges ending at a specific node.
+    ///     Retrieves all incoming edges ending at a specific node.
     /// </summary>
     /// <param name="nodeName">The name of the target node.</param>
     /// <param name="graphData">The graph data structure containing the edges.</param>
@@ -42,14 +42,14 @@ public interface ILineagePlugin
     IEnumerable<Edge> GetIncomingEdges(string nodeName, GraphData graphData);
 
     /// <summary>
-    /// Retrieves all nodes from the graph data.
+    ///     Retrieves all nodes from the graph data.
     /// </summary>
     /// <param name="graphData">The graph data structure containing the nodes.</param>
     /// <returns>An enumerable collection of nodes in the graph.</returns>
     IEnumerable<Node> GetNodes(GraphData graphData);
 
     /// <summary>
-    /// Retrieves all edges from the graph data.
+    ///     Retrieves all edges from the graph data.
     /// </summary>
     /// <param name="graphData">The graph data structure containing the edges.</param>
     /// <returns>An enumerable collection of edges in the graph.</returns>

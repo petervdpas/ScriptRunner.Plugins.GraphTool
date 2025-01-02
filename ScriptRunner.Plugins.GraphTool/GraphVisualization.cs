@@ -174,5 +174,5 @@ public class GraphVisualization : IGraphVisualization
 
         sb.AppendLine("}");
         return sb.ToString();
-    } 
+    }
 }
