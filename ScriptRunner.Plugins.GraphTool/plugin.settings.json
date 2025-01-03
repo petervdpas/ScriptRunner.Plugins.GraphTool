@@ -2,6 +2,6 @@
   {
     "Key": "PluginName",
     "Type": "string",
-    "DefaultValue": "OrmLite"
+    "DefaultValue": "GraphTool"
   }
 ]
