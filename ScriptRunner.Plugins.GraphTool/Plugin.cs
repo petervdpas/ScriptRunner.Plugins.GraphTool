@@ -8,6 +8,7 @@ using ScriptRunner.Plugins.GraphTool.Interfaces;
 using ScriptRunner.Plugins.GraphTool.Interfaces.Plugins;
 using ScriptRunner.Plugins.GraphTool.Plugins;
 using ScriptRunner.Plugins.Logging;
+using ScriptRunner.Plugins.Models;
 using ScriptRunner.Plugins.Utilities;
 
 namespace ScriptRunner.Plugins.GraphTool;
@@ -70,12 +71,11 @@ public class Plugin : BaseAsyncServicePlugin
     ///     Initializes the plugin using the provided configuration.
     /// </summary>
     /// <param name="configuration">A dictionary containing configuration key-value pairs for the plugin.</param>
-    public override async Task InitializeAsync(IDictionary<string, object> configuration)
+    public override async Task InitializeAsync(IEnumerable<PluginSettingDefinition> configuration)
     {
-        await Task.Delay(100);
-        Console.WriteLine(configuration.TryGetValue("GraphToolKey", out var graphToolValue)
-            ? $"GraphToolKey value: {graphToolValue}"
-            : "GraphToolKey not found in configuration.");
+        PluginSettingsHelper.DisplayValues(configuration);
+        
+        await Task.CompletedTask;
     }
 
     /// <summary>
