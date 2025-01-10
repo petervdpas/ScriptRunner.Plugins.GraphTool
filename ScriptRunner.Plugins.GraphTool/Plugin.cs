@@ -20,7 +20,7 @@ namespace ScriptRunner.Plugins.GraphTool;
 ///     This plugin demonstrates how to ...
 /// </remarks>
 [PluginMetadata(
-    "Graph Tool",
+    "GraphTool",
     "A plugin that cam perform graph operations",
     "Peter van de Pas",
     "1.0.0",
