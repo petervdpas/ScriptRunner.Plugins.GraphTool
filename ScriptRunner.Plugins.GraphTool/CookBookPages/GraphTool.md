@@ -176,6 +176,6 @@ erDiagram
 
 ## Tips
 
-- Use `GraphPluginManager` to switch between different graph types dynamically.
-- Experiment with other visualization formats like `TemplateType.GraphvizDiGraph` or `TemplateType.PlantUmlClass`.
-- Extend the graph structure by adding custom nodes or relationships using the `GraphData` API.
+- Use **GraphPluginManager** to switch between different graph types dynamically.
+- Experiment with other visualization formats like **TemplateType.GraphvizDiGraph** or **TemplateType.PlantUmlClass`.
+- Extend the graph structure by adding custom nodes or relationships using the **GraphData** API.
