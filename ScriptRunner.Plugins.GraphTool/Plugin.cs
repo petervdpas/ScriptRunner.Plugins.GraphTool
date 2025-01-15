@@ -78,7 +78,7 @@ public class Plugin : BaseAsyncServicePlugin
 
         // Optionally display the settings
         PluginSettingsHelper.DisplayStoredSettings();
-        
+
         await Task.CompletedTask;
     }
 
@@ -89,8 +89,8 @@ public class Plugin : BaseAsyncServicePlugin
     {
         // Example execution logic
         await Task.Delay(50);
-        
-        var storedSetting = PluginSettingsHelper.RetrieveSetting<string>("PluginName");
+
+        var storedSetting = PluginSettingsHelper.RetrieveSetting<string>("PluginName", true);
         Console.WriteLine($"Retrieved PluginName: {storedSetting}");
     }
 }

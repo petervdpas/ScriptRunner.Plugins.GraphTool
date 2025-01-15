@@ -15,13 +15,14 @@ toc-own-page: true
 
 ## Goal
 
-Learn how to use the **GraphTool Plugin** to create and visualize graph structures such as 
-Entity-Relationship Diagrams (ERDs), Class Diagrams, and Lineage Graphs. 
+Learn how to use the **GraphTool Plugin** to create and visualize graph structures such as
+Entity-Relationship Diagrams (ERDs), Class Diagrams, and Lineage Graphs.
 This recipe demonstrates generating a Mermaid diagram from graph data.
 
 ## Overview
 
 This recipe covers:
+
 1. Creating a graph structure from entities and relationships.
 2. Using different graph plugins (ERD, ClassDiagram, Lineage).
 3. Rendering graphs as diagrams in various formats (e.g., Mermaid, Graphviz, PlantUML).
@@ -69,7 +70,7 @@ var relationships = db.LoadRelationships(); // Relationships between entities
 
 ### 4. Generate Graph Data
 
-Use the **ERD Plugin** to create a graph structure from the loaded entities and relationships. 
+Use the **ERD Plugin** to create a graph structure from the loaded entities and relationships.
 Optionally filter the graph by focusing on specific entities:
 
 ```csharp
